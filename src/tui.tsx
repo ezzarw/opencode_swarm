@@ -160,7 +160,7 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
       case "working":
         return theme.text.feedback.success.base
       case "waiting":
-        return theme.text.accent.base
+        return theme.text.action.primary.base
       case "paused":
         return theme.text.feedback.warning.base
       case "killed":
@@ -366,7 +366,7 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
         height={1}
         flexShrink={0}
       >
-        <text fg={theme.text.accent.base}>
+        <text fg={theme.text.action.primary.base}>
           SWARM BOARD [{state.snapshot?.title ?? state.swarmId}] #{state.snapshot?.head ?? 0} • {channelFilter()}
         </text>
         <Show when={totals()}>
@@ -394,10 +394,10 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
           width="28%"
           flexDirection="column"
           border
-          borderColor={focus() === "roster" ? theme.text.accent.base : theme.border.base}
+          borderColor={focus() === "roster" ? theme.text.action.primary.base : theme.border.base}
           padding={1}
         >
-          <text fg={focus() === "roster" ? theme.text.accent.base : theme.text.base}>
+          <text fg={focus() === "roster" ? theme.text.action.primary.base : theme.text.base}>
             Roster ({membersList().length})
           </text>
           <scrollbox flexGrow={1}>
@@ -434,10 +434,10 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
           width="42%"
           flexDirection="column"
           border
-          borderColor={focus() === "feed" ? theme.text.accent.base : theme.border.base}
+          borderColor={focus() === "feed" ? theme.text.action.primary.base : theme.border.base}
           padding={1}
         >
-          <text fg={focus() === "feed" ? theme.text.accent.base : theme.text.base}>
+          <text fg={focus() === "feed" ? theme.text.action.primary.base : theme.text.base}>
             Posts Feed ({filteredMessages().length})
           </text>
           <scrollbox flexGrow={1}>
@@ -451,7 +451,7 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
                   const preview = msg.text.replace(/\s+/g, " ").slice(0, 96)
                   return (
                     <box flexDirection="column" paddingTop={idx() === 0 ? 0 : 1}>
-                      <text fg={isSelected() ? theme.text.formfield.selected : theme.text.accent.base}>
+                      <text fg={isSelected() ? theme.text.formfield.selected : theme.text.action.primary.base}>
                         {isSelected() ? "› " : "  "}#{msg.seq} @{msg.agent} [{msg.channel}]
                         {msg.kind ? ` (${msg.kind})` : ""}
                       </text>
@@ -472,15 +472,15 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
           width="30%"
           flexDirection="column"
           border
-          borderColor={focus() === "detail" ? theme.text.accent.base : theme.border.base}
+          borderColor={focus() === "detail" ? theme.text.action.primary.base : theme.border.base}
           padding={1}
         >
-          <text fg={focus() === "detail" ? theme.text.accent.base : theme.text.base}>Detail</text>
+          <text fg={focus() === "detail" ? theme.text.action.primary.base : theme.text.base}>Detail</text>
           <scrollbox flexGrow={1}>
             <Show when={selectedMessage()}>
               {(msg) => (
                 <box flexDirection="column" gap={0}>
-                  <text fg={theme.text.accent.base}>
+                  <text fg={theme.text.action.primary.base}>
                     Post #{msg().seq} by @{msg().agent}
                   </text>
                   <text fg={theme.text.muted}>
@@ -498,7 +498,7 @@ function SwarmBoardView(props: { context: Plugin.Context }) {
                 const hit = denom > 0 ? member().usage.cacheReadTokens / denom : 0
                 return (
                   <box flexDirection="column" paddingTop={1}>
-                    <text fg={theme.text.accent.base}>
+                    <text fg={theme.text.action.primary.base}>
                       Member @{member().name} [{member().role}]
                     </text>
                     <text fg={statusColor(member().status)}>
