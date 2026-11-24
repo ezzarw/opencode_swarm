@@ -257,6 +257,7 @@ export default Plugin.define({
         description:
           "Manage the OpenCode swarm: status, models, add (with tasks/n/wave/depends_on/auto_waves), model, kill, land, channel, join, title.",
         options: { codemode: false },
+        output: { type: "object", additionalProperties: true },
         input: {
           type: "object",
           properties: {
@@ -407,6 +408,7 @@ export default Plugin.define({
         name: "post_message",
         description: "Post a message to the swarm blackboard.",
         options: { codemode: false },
+        output: { type: "object", additionalProperties: true },
         input: {
           type: "object",
           properties: {
@@ -437,6 +439,7 @@ export default Plugin.define({
         name: "read_board",
         description: "Read messages from the swarm blackboard.",
         options: { codemode: false },
+        output: { type: "object", additionalProperties: true },
         input: {
           type: "object",
           properties: {
@@ -468,6 +471,7 @@ export default Plugin.define({
         name: "swarm_wait",
         description: "Sleep at 0 tokens until a matching message arrives on the swarm blackboard.",
         options: { codemode: false },
+        output: { type: "object", additionalProperties: true },
         input: {
           type: "object",
           properties: {
